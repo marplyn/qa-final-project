@@ -20,6 +20,7 @@ public abstract class BaseTest {
         Configuration.headless = false;
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 50000;
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @After

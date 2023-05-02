@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -12,6 +13,7 @@ public class MortgagedPropertyPage {
 
     public MortgagedPropertyPage getFlatsAndRoomsAmount() {
         $(FLATS_AND_ROOMS).scrollIntoView(true);
+        $(FLATS_AND_ROOMS_AMOUNT).should(Condition.exist, Condition.visible);
         flatsAndRoomsAmount = $(FLATS_AND_ROOMS_AMOUNT).getText();
         return this;
     }
