@@ -3,10 +3,9 @@ package tests;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import io.qameta.allure.*;
-import pages.ComplianceAndBusinessEthicsPage;
-import pages.HomePage;
-import pages.MortgagedPropertyOffersPage;
-import pages.MortgagedPropertyPage;
+import pages.*;
+
+import static com.codeborne.selenide.Selenide.switchTo;
 
 public class WebDesktopTests extends BaseTest {
     // Тест-кейс 1.
@@ -41,5 +40,25 @@ public class WebDesktopTests extends BaseTest {
         homePage.openPage();
         homePage.goToComplianceAndBusinessEthicsPage();
         complianceAndBusinessEthicsPage.checkPDFContents();
+    }
+
+    // Тест-кейс 3.
+    // 1. Открыть главную страницу
+    // 2. Перейти во вкладку "Ипотека"
+    // 3. В программе "Господдержка" нажать на "Если доход ниже"
+    // 4. В модальном окне перейти по ссылке "Созаемщики по ипотеке: кто может быть и зачем нужны"
+    // 5. Проверить, что название открывшейся статьи содержит слово "созаёмщик"
+    @Test
+    public void coBorrowerArticleTest() {
+        HomePage homePage = new HomePage();
+        MortgagePage mortgagePage = new MortgagePage();
+        BlogPage blogPage = new BlogPage();
+
+        homePage.openPage();
+        homePage.goToMortgagePage();
+        mortgagePage.openIfIncomeIsLowerModalWindow();
+        mortgagePage.viewIfIncomeIsLowerModalWindow();
+        switchTo().window(1);
+        blogPage.checkArticleTitle("созаёмщик");
     }
 }

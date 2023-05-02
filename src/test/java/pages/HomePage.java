@@ -11,6 +11,7 @@ import static tests.BaseTest.config;
 public class HomePage {
     private final By MORTGAGED_PROPERTY = By.cssSelector("[href=\"/o-banke/realizacia-aktivov/\"]");
     private final By COMPLIANCE_AND_BUSINESS_ETHICS = By.cssSelector("[href=\"/o-banke/protivodeystvie-narusheniyam/\"]");
+    private final By MORTGAGE = By.cssSelector("[href=\"/chastnim-licam/ipoteka/\"]");
 
     public HomePage openPage() {
         open(config.baseUrl());
@@ -26,6 +27,11 @@ public class HomePage {
     public HomePage goToComplianceAndBusinessEthicsPage() {
         $(COMPLIANCE_AND_BUSINESS_ETHICS).scrollIntoView(true);
         $(COMPLIANCE_AND_BUSINESS_ETHICS).click();
+        return this;
+    }
+
+    public HomePage goToMortgagePage() {
+        $(MORTGAGE).click();
         return this;
     }
 }
