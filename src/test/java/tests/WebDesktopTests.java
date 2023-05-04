@@ -1,9 +1,11 @@
 package tests;
 
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
-import io.qameta.allure.*;
 import pages.*;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.switchTo;
 
@@ -21,9 +23,11 @@ public class WebDesktopTests extends BaseTest {
 
         homePage.openPage();
         homePage.goToMortgagedPropertyPage();
+
         mortgagedPropertyPage.getFlatsAndRoomsAmount();
         String flatsAndRoomsAmount = mortgagedPropertyPage.flatsAndRoomsAmount;
         mortgagedPropertyPage.goToFlatsAndRoomsPage();
+
         mortgagedPropertyOffersPage.checkAmountOfOffers(flatsAndRoomsAmount);
     }
 
@@ -39,6 +43,7 @@ public class WebDesktopTests extends BaseTest {
 
         homePage.openPage();
         homePage.goToComplianceAndBusinessEthicsPage();
+
         complianceAndBusinessEthicsPage.checkPDFContents();
     }
 
@@ -56,9 +61,46 @@ public class WebDesktopTests extends BaseTest {
 
         homePage.openPage();
         homePage.goToMortgagePage();
+
         mortgagePage.openIfIncomeIsLowerModalWindow();
         mortgagePage.viewIfIncomeIsLowerModalWindow();
         switchTo().window(1);
+
         blogPage.checkArticleTitle("созаёмщик");
+    }
+
+
+    // Тест-кейс 4.
+    // 1. Открыть главную страницу
+    // 2. Заполнить форму "Узнайте ваше персональное предложение" рандомными валидными значениями
+    // 3. Проверить появление поля подтверждения мобильного телефона
+    @Test
+    public void personalOfferTest() {
+        HomePage homePage = new HomePage();
+
+        FakeValuesService fakeValuesService = new FakeValuesService(new Locale("ru"), new RandomService());
+        String randomPhoneNumber = fakeValuesService.numerify("9#########");
+        String randomPassportNumber = fakeValuesService.numerify("##########");
+
+        homePage.openPage();
+        homePage.fillPersonalOfferForm(randomPhoneNumber, randomPassportNumber);
+        homePage.checkFormConfirmationField();
+    }
+
+    // Тест-кейс 5.
+    // 1. Открыть главную страницу
+    // 2. Проскроллить до футера и перейти в раздел "Правила безопасности"
+    // 3. Пройти тест "Обмани мошенника" со всеми верными утверждениями, проверяя результат каждого вопроса
+    // 4. Проверить, что результат прохождения теста - 4/4
+    @Test
+    public void personalSecurityQuizTest() {
+        HomePage homePage = new HomePage();
+        SecurityRulesPage securityRulesPage = new SecurityRulesPage();
+
+        homePage.openPage();
+        homePage.goToSecurityRulesPage();
+
+        securityRulesPage.doSecurityQuizCorrect();
+        securityRulesPage.checkQuizScore();
     }
 }

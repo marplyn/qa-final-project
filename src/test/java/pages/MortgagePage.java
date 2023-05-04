@@ -16,6 +16,7 @@ public class MortgagePage {
     }
 
     public MortgagePage viewIfIncomeIsLowerModalWindow() {
+        $(WHO_IS_CO_BORROWER_LINK).shouldBe(Condition.visible);
         $(WHO_IS_CO_BORROWER_LINK).click();
         return this;
     }
