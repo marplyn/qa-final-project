@@ -53,13 +53,6 @@ public class HomePage {
         return this;
     }
 
-    /*
-    public HomePage checkFormMandatoryHint() {
-        $(OFFER_FORM_MANDATORY_HINT).shouldBe(Condition.visible);
-        return this;
-    }
-    */
-
     public HomePage goToSecurityRulesPage() {
         $(SECURITY_RULES).scrollIntoView(true);
         $(SECURITY_RULES).click();

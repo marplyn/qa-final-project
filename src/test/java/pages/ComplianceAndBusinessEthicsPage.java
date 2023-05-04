@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.pdftest.PDF;
-import com.codeborne.selenide.Condition;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static com.codeborne.pdftest.PDF.containsText;
 

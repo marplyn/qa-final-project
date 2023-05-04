@@ -3,13 +3,11 @@ package tests;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
 import pages.*;
 
 import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.switchTo;
-import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 public class WebDesktopTests extends BaseTest {
     // Тест-кейс 1.
