@@ -1,10 +1,10 @@
-package pages;
+package pages.desktop;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
-import static tests.BaseTest.config;
+import static tests.desktop.BaseDesktopTest.config;
 
 public class HomePage {
     private final By MORTGAGED_PROPERTY = By.cssSelector("[href=\"/o-banke/realizacia-aktivov/\"]");
@@ -14,7 +14,6 @@ public class HomePage {
     private final By OFFER_FORM_PASSPORT_NUM = By.cssSelector("input[name=passportNumberWithSerial]");
     private final By OFFER_FORM_GET_LIMIT_BTN = By.cssSelector("button[class*=\"FormButton\"]");
     private final By OFFER_FORM_CONFIRMATION_FIELD = By.cssSelector("[data-testid=\"confirmationField\"]");
-    //private final By OFFER_FORM_MANDATORY_HINT = By.xpath("//*[contains(text(),\"Обязательное поле\")]");
     private final By SECURITY_RULES = By.cssSelector("[href*=\"bezopasnost-ispolzovania\"]");
 
     public HomePage openPage() {

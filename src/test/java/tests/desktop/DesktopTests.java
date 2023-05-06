@@ -1,15 +1,16 @@
-package tests;
+package tests.desktop;
 
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import org.junit.jupiter.api.Test;
-import pages.*;
+import pages.desktop.*;
+import tests.desktop.BaseDesktopTest;
 
 import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.switchTo;
 
-public class WebDesktopTests extends BaseTest {
+public class DesktopTests extends BaseDesktopTest {
     // Тест-кейс 1.
     // 1. Открыть главную страницу
     // 2. Проскроллить до футера и перейти в раздел "Реализуемое имущество"
@@ -57,7 +58,7 @@ public class WebDesktopTests extends BaseTest {
     public void coBorrowerArticleTest() {
         HomePage homePage = new HomePage();
         MortgagePage mortgagePage = new MortgagePage();
-        BlogPage blogPage = new BlogPage();
+        ArticlePage articlePage = new ArticlePage();
 
         homePage.openPage();
         homePage.goToMortgagePage();
@@ -66,7 +67,7 @@ public class WebDesktopTests extends BaseTest {
         mortgagePage.viewIfIncomeIsLowerModalWindow();
         switchTo().window(1);
 
-        blogPage.checkArticleTitle("созаёмщик");
+        articlePage.checkArticleTitle("созаёмщик");
     }
 
 

@@ -1,4 +1,4 @@
-package pages;
+package pages.desktop;
 
 import com.codeborne.pdftest.PDF;
 import static org.hamcrest.MatcherAssert.assertThat;

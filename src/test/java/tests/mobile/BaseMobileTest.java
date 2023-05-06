@@ -1,4 +1,4 @@
-package tests;
+package tests.mobile;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -7,9 +7,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.parallel.Isolated;
 
-public abstract class BaseTest {
-
+public class BaseMobileTest {
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
 
     @BeforeEach
@@ -18,14 +18,15 @@ public abstract class BaseTest {
         Configuration.browser = "chrome";
         Configuration.driverManagerEnabled = true;
         Configuration.headless = false;
-        Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
+        System.setProperty("chromeoptions.mobileEmulation", "deviceName=Nexus 5");
     }
 
     @AfterEach
     public void cleanConfiguration() {
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
+        System.clearProperty("chromeoptions.mobileEmulation");
     }
 
     @AfterEach

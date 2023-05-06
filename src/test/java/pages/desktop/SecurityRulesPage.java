@@ -1,4 +1,4 @@
-package pages;
+package pages.desktop;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SecurityRulesPage {
-    private final By QUIZ_FRAME = By.cssSelector("[class=\"quiz\"][id=\"quiz\"]");
-
     private final By TASK_1_ANSWER = By.cssSelector("[data-fieldset=\"quiz-1\"] input[data-weight=\"1\"]");
     private final By TASK_1_RESULT = By.cssSelector("[data-fieldset=\"quiz-1\"] [class=\"quiz__question-result\"]");
     private final By TASK_1_BTN = By.cssSelector("button[class=\"slide__btn quiz__btn\"][data-parent-fieldset=\"quiz-1\"]");
