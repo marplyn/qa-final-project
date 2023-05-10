@@ -9,7 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.parallel.Isolated;
 
-public class BaseMobileTest {
+public abstract class BaseMobileTest {
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
 
     @BeforeEach
