@@ -9,7 +9,7 @@ public class TelegramPage {
     private final By CHAT_NAME = By.cssSelector(".tgme_page_title span");
 
     public TelegramPage checkChatTitle() {
-        $(CHAT_NAME).should(Condition.exist);
+        $(CHAT_NAME).should(Condition.exist).shouldHave(Condition.text("МТС Банк"));
         return this;
     }
 }
