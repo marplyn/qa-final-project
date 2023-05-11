@@ -4,9 +4,12 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import config.ProjectConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public abstract class BaseDesktopTest {
 
@@ -20,6 +23,7 @@ public abstract class BaseDesktopTest {
         Configuration.headless = true;
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
+        addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
     }
 
     @AfterEach

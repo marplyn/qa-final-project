@@ -4,10 +4,12 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import config.ProjectConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.parallel.Isolated;
+
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public abstract class BaseMobileTest {
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
@@ -20,6 +22,7 @@ public abstract class BaseMobileTest {
         Configuration.headless = true;
         Configuration.pageLoadStrategy = "eager";
         System.setProperty("chromeoptions.mobileEmulation", "deviceName=Nexus 5");
+        addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
     }
 
     @AfterEach
