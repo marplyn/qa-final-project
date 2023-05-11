@@ -47,8 +47,7 @@ public class HomePage {
 
     @Step("Нажать на кнопку \"Да, верно\" на уведомлении о подтверждении региона")
     public HomePage clickAcceptRegionBtn() {
-        if ($(ACCEPT_REGION_BTN).isDisplayed())
-            $(ACCEPT_REGION_BTN).click();
+        $(ACCEPT_REGION_BTN).click();
         return this;
     }
 
