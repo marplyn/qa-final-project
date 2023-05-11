@@ -1,5 +1,7 @@
 package tests.mobile;
 
+import io.qameta.allure.Description;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -7,6 +9,7 @@ import pages.mobile.*;
 
 import static com.codeborne.selenide.Selenide.switchTo;
 
+@DisplayName("Тестирование мобильной версии сайта")
 public class MobileTests extends BaseMobileTest {
     // Тест-кейс 1.
     // 1. Открыть главную страницу
@@ -14,6 +17,7 @@ public class MobileTests extends BaseMobileTest {
     // 3. Поставить фильтр статей "Кредитные карты"
     // 4. Проверить, что отображены статьи только этой категории
     @Test
+    @Description("Проверка фильтрации статей в блоге")
     public void blogFiltersTest() {
         HomePage homePage = new HomePage();
         BlogPage blogPage = new BlogPage();
@@ -37,6 +41,7 @@ public class MobileTests extends BaseMobileTest {
     // 5. Проверить, что появилась подсказка "Введите верный номер телефона"
     @ParameterizedTest
     @ValueSource(strings = {"", "95437"})
+    @Description("Негативная проверка заполнения формы заказа виртуальной карты")
     public void mirLiteVirtualCardOrderNegativeTest(String phoneNumber) {
         HomePage homePage = new HomePage();
         CardsPage cardsPage = new CardsPage();
@@ -59,6 +64,7 @@ public class MobileTests extends BaseMobileTest {
     // 4. В форме заполнения заявки нажать на ссылку "согласием на обработку данных посетителя сайта"
     // 5. Проверить, что на открывшейся странице заголовок содержит "обработку данных посетителя сайта"
     @Test
+    @Description("Проверка страницы согласия на обработку данных посетителя сайта")
     public void consentToPersonalDataProcessingTest() {
         HomePage homePage = new HomePage();
         LoansPage loansPage = new LoansPage();
@@ -85,6 +91,7 @@ public class MobileTests extends BaseMobileTest {
     // 5. Выбрать раздел "Офисы и банкоматы"
     // 6. Проверить, что в строке поиска на открывшейся странице введено название установленного города
     @Test
+    @Description("Проверка отображения выбранного региона обсуживания")
     public void regionSettingTest() {
         HomePage homePage = new HomePage();
         OfficesAndATMsPage officesAndATMsPage = new OfficesAndATMsPage();
@@ -104,6 +111,7 @@ public class MobileTests extends BaseMobileTest {
     // 2. В баннере "Новости МТС Банка без задержки в Telegram" нажать на кнопку "Подписаться"
     // 3. Проверить, что на открывшейся странице отображается название чата
     @Test
+    @Description("Проверка работы подписки на Telegram через баннер на главной странице")
     public void telegramBannerTest() {
         HomePage homePage = new HomePage();
         TelegramPage telegramPage = new TelegramPage();

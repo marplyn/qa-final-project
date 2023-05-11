@@ -2,6 +2,8 @@ package tests.desktop;
 
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
+import org.junit.jupiter.api.DisplayName;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 import pages.desktop.*;
 import tests.desktop.BaseDesktopTest;
@@ -10,6 +12,7 @@ import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.switchTo;
 
+@DisplayName("Тестирование десктопной версии сайта")
 public class DesktopTests extends BaseDesktopTest {
     // Тест-кейс 1.
     // 1. Открыть главную страницу
@@ -17,6 +20,7 @@ public class DesktopTests extends BaseDesktopTest {
     // 3. В разделе "Жилая недвижимость" посмотреть кол-во предложений у категории "Квартиры и комнаты"
     // 4. Перейти в раздел "Квартиры и комнаты" и проверить кол-во предложений
     @Test
+    @Description("Проверка количества предложений реализуемого имущества")
     public void mortgagedPropertyTest() {
         HomePage homePage = new HomePage();
         MortgagedPropertyPage mortgagedPropertyPage = new MortgagedPropertyPage();
@@ -38,6 +42,7 @@ public class DesktopTests extends BaseDesktopTest {
     // 3. Открыть PDF-документ "Кодекс этики"
     // 4. Проверить, что PDF-документ содержит текст "Кодекс этики"
     @Test
+    @Description("Проверка содержания pdf-документа \"Кодекс этики\"")
     public void codeOfEthicsDocumentTest() throws Exception {
         HomePage homePage = new HomePage();
         ComplianceAndBusinessEthicsPage complianceAndBusinessEthicsPage = new ComplianceAndBusinessEthicsPage();
@@ -55,6 +60,7 @@ public class DesktopTests extends BaseDesktopTest {
     // 4. В модальном окне перейти по ссылке "Созаемщики по ипотеке: кто может быть и зачем нужны"
     // 5. Проверить, что название открывшейся статьи содержит слово "созаёмщик"
     @Test
+    @Description("Проверка соответствия статьи ссылке в модальном окне")
     public void coBorrowerArticleTest() {
         HomePage homePage = new HomePage();
         MortgagePage mortgagePage = new MortgagePage();
@@ -76,6 +82,7 @@ public class DesktopTests extends BaseDesktopTest {
     // 2. Заполнить форму "Узнайте ваше персональное предложение" рандомными валидными значениями
     // 3. Проверить появление поля подтверждения мобильного телефона
     @Test
+    @Description("Позитивная проверка заполнения формы персонального предложения")
     public void personalOfferTest() {
         HomePage homePage = new HomePage();
 
@@ -94,6 +101,7 @@ public class DesktopTests extends BaseDesktopTest {
     // 3. Пройти тест "Обмани мошенника" со всеми верными утверждениями, проверяя результат каждого вопроса
     // 4. Проверить, что результат прохождения теста - 4/4
     @Test
+    @Description("Проверка прохождения теста \"Обмани мошенника\"")
     public void personalSecurityQuizTest() {
         HomePage homePage = new HomePage();
         SecurityRulesPage securityRulesPage = new SecurityRulesPage();

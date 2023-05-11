@@ -2,6 +2,7 @@ package pages.desktop;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -25,6 +26,7 @@ public class SecurityRulesPage {
 
     private final By FINAL_RESULT = By.cssSelector("[class*=\"quiz-final__header\"]");
 
+    @Step("Выполнить корректно тест \"Обмани мошенника\"")
     public SecurityRulesPage doSecurityQuizCorrect() {
         Selenide.sleep(4000);
         checkFirstTask();
@@ -34,34 +36,39 @@ public class SecurityRulesPage {
         return this;
     }
 
+    @Step("Проверить корректный результат Задания №1")
     private SecurityRulesPage checkFirstTask() {
         $(TASK_1_ANSWER).click();
-        $(TASK_1_RESULT).shouldHave(Condition.text("Правильно"));
+        $(TASK_1_RESULT).shouldBe(Condition.visible).shouldHave(Condition.text("Правильно"));
         $(TASK_1_BTN).click();
         return this;
     }
 
+    @Step("Проверить корректный результат Задания №2")
     private SecurityRulesPage checkSecondTask() {
         $(TASK_2_ANSWER).click();
-        $(TASK_2_RESULT).shouldHave(Condition.text("Правильно"));
+        $(TASK_2_RESULT).shouldBe(Condition.visible).shouldHave(Condition.text("Правильно"));
         $(TASK_2_BTN).click();
         return this;
     }
 
+    @Step("Проверить корректный результат Задания №3")
     private SecurityRulesPage checkThirdTask() {
         $(TASK_3_ANSWER).click();
-        $(TASK_3_RESULT).shouldHave(Condition.text("Правильно"));
+        $(TASK_3_RESULT).shouldBe(Condition.visible).shouldHave(Condition.text("Правильно"));
         $(TASK_3_BTN).click();
         return this;
     }
 
+    @Step("Проверить корректный результат Задания №4")
     private SecurityRulesPage checkFourthTask() {
         $(TASK_4_ANSWER).click();
-        $(TASK_4_RESULT).shouldHave(Condition.text("Правильно"));
+        $(TASK_4_RESULT).shouldBe(Condition.visible).shouldHave(Condition.text("Правильно"));
         $(TASK_4_BTN).click();
         return this;
     }
 
+    @Step("Проверить корректный результат прохождения тесты")
     public SecurityRulesPage checkQuizScore() {
         $(FINAL_RESULT).shouldHave(Condition.text("4/4"));
         return this;

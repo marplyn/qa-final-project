@@ -17,7 +17,7 @@ public abstract class BaseDesktopTest {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.driverManagerEnabled = true;
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
     }
