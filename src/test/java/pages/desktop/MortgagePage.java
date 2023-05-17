@@ -16,9 +16,9 @@ public class MortgagePage {
     @Step("Открыть модальное окно \"Если доход ниже\"")
     public MortgagePage openIfIncomeIsLowerModalWindow() {
         Selenide.sleep(6000);
-        $(BLOCK_TITLE).scrollIntoView(true);
-        $(IF_INCOME_IS_LOWER_LINK).shouldBe(Condition.visible, Condition.interactable);
-        $(IF_INCOME_IS_LOWER_LINK).click();
+        $(BLOCK_TITLE, 0).scrollIntoView(true);
+        $(IF_INCOME_IS_LOWER_LINK, 0).shouldBe(Condition.visible, Condition.interactable);
+        $(IF_INCOME_IS_LOWER_LINK, 0).click();
         return this;
     }
 
