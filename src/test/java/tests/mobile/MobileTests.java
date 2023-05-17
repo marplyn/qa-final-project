@@ -24,7 +24,7 @@ public class MobileTests extends BaseMobileTest {
         CreditCardsBlogPage creditCardsBlogPage = new CreditCardsBlogPage();
 
         homePage.openPage();
-        homePage.clickAcceptRegionBtn();
+        //homePage.clickAcceptRegionBtn();
         homePage.clickReadBlogBtn();
 
         blogPage.filterArticles();
@@ -72,7 +72,7 @@ public class MobileTests extends BaseMobileTest {
         ConsentToPersonalDataPage consentToPersonalDataPage = new ConsentToPersonalDataPage();
 
         homePage.openPage();
-        homePage.clickAcceptRegionBtn();
+        //homePage.clickAcceptRegionBtn();
         homePage.clickLoansNavbarBtn();
 
         loansPage.clickMakeRefinanceBtn();
@@ -97,7 +97,7 @@ public class MobileTests extends BaseMobileTest {
         OfficesAndATMsPage officesAndATMsPage = new OfficesAndATMsPage();
 
         homePage.openPage();
-        homePage.clickAcceptRegionBtn();
+        //homePage.clickAcceptRegionBtn();
         homePage.clickMapBtn();
         homePage.chooseCity();
         homePage.clickMoreNavbarBtn();
@@ -117,7 +117,7 @@ public class MobileTests extends BaseMobileTest {
         TelegramPage telegramPage = new TelegramPage();
 
         homePage.openPage();
-        homePage.clickAcceptRegionBtn();
+        //homePage.clickAcceptRegionBtn();
         homePage.clickTelegramBannerButton();
         switchTo().window(1);
 
