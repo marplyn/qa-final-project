@@ -28,7 +28,7 @@ public class SecurityRulesPage {
 
     @Step("Выполнить корректно тест \"Обмани мошенника\"")
     public SecurityRulesPage doSecurityQuizCorrect() {
-        Selenide.sleep(4000);
+        Selenide.sleep(6000);
         checkFirstTask();
         checkSecondTask();
         checkThirdTask();
