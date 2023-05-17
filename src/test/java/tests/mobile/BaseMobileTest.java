@@ -21,6 +21,7 @@ public abstract class BaseMobileTest {
         Configuration.driverManagerEnabled = true;
         Configuration.headless = true;
         Configuration.pageLoadStrategy = "eager";
+        Configuration.browserCapabilities.setCapability("locationContextEnabled", true);
         System.setProperty("chromeoptions.mobileEmulation", "deviceName=Nexus 5");
         addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
     }
