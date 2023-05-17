@@ -4,6 +4,9 @@ import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static tests.desktop.BaseDesktopTest.config;
@@ -47,6 +50,7 @@ public class HomePage {
 
     @Step("Нажать на кнопку \"Да, верно\" на уведомлении о подтверждении региона")
     public HomePage clickAcceptRegionBtn() {
+        $(ACCEPT_REGION_BTN).shouldBe(Condition.visible, Duration.of(4, ChronoUnit.SECONDS));
         $(ACCEPT_REGION_BTN).click();
         return this;
     }
