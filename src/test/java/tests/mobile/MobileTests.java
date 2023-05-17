@@ -48,7 +48,7 @@ public class MobileTests extends BaseMobileTest {
         MirLiteCardPage mirLiteCardPage = new MirLiteCardPage();
 
         homePage.openPage();
-        //homePage.clickAcceptRegionBtn();
+        homePage.clickAcceptRegionBtn();
         homePage.clickCardsNavbarBtn();
 
         cardsPage.clickMirLiteOrderCardBtn();
