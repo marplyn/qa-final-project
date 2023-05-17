@@ -50,7 +50,7 @@ public class HomePage {
 
     @Step("Нажать на кнопку \"Да, верно\" на уведомлении о подтверждении региона")
     public HomePage clickAcceptRegionBtn() {
-        $(ACCEPT_REGION_BTN).shouldBe(Condition.visible, Duration.of(4, ChronoUnit.SECONDS));
+        $(ACCEPT_REGION_BTN).shouldBe(Condition.visible);
         $(ACCEPT_REGION_BTN).click();
         return this;
     }
