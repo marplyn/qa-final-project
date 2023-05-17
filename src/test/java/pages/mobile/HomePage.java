@@ -1,6 +1,7 @@
 package pages.mobile;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
@@ -26,6 +27,7 @@ public class HomePage {
     @Step("Открыть главную страницу")
     public HomePage openPage() {
         open(config.baseUrl());
+        Selenide.sleep(6000);
         return this;
     }
 

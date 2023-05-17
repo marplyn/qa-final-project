@@ -8,6 +8,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
@@ -21,7 +22,6 @@ public abstract class BaseMobileTest {
         Configuration.driverManagerEnabled = true;
         Configuration.headless = true;
         Configuration.pageLoadStrategy = "eager";
-        Configuration.browserCapabilities.setCapability("locationContextEnabled", true);
         System.setProperty("chromeoptions.mobileEmulation", "deviceName=Nexus 5");
         addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
     }
