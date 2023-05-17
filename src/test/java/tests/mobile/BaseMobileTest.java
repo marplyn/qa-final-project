@@ -19,7 +19,7 @@ public abstract class BaseMobileTest {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.driverManagerEnabled = true;
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.pageLoadStrategy = "eager";
         System.setProperty("chromeoptions.mobileEmulation", "deviceName=Nexus 5");
         addListener("AllureSelenide", new AllureSelenide().savePageSource(false));
