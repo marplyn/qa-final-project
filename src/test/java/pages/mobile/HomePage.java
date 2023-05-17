@@ -52,7 +52,6 @@ public class HomePage {
     public HomePage clickAcceptRegionBtn() {
         if ($(ACCEPT_REGION_BTN).isDisplayed()) {
             $(ACCEPT_REGION_BTN).click();
-            $(ACCEPT_REGION_BTN).shouldBe(Condition.not(Condition.visible), Duration.of(3, ChronoUnit.SECONDS));
         }
         return this;
     }

@@ -99,6 +99,7 @@ public class MobileTests extends BaseMobileTest {
         homePage.openPage();
         homePage.clickAcceptRegionBtn();
         homePage.clickMapBtn();
+        homePage.clickAcceptRegionBtn();
         homePage.chooseCity();
         homePage.clickMoreNavbarBtn();
         homePage.clickOfficesAndATMs();
