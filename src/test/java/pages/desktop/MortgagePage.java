@@ -1,6 +1,7 @@
 package pages.desktop;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
@@ -14,6 +15,7 @@ public class MortgagePage {
 
     @Step("Открыть модальное окно \"Если доход ниже\"")
     public MortgagePage openIfIncomeIsLowerModalWindow() {
+        Selenide.sleep(6000);
         $(BLOCK_TITLE).scrollIntoView(true);
         $(IF_INCOME_IS_LOWER_LINK).shouldBe(Condition.visible, Condition.interactable);
         $(IF_INCOME_IS_LOWER_LINK).click();
