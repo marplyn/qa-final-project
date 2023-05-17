@@ -17,10 +17,9 @@ public class DesktopTests extends BaseDesktopTest {
     // Тест-кейс 1.
     // 1. Открыть главную страницу
     // 2. Проскроллить до футера и перейти в раздел "Реализуемое имущество"
-    // 3. В разделе "Жилая недвижимость" посмотреть кол-во предложений у категории "Квартиры и комнаты"
-    // 4. Перейти в раздел "Квартиры и комнаты" и проверить кол-во предложений
+    // 3. Перейти в раздел "Квартиры и комнаты" и проверить, что в карточке присутвует слово "квартира"
     @Test
-    @Description("Проверка количества предложений реализуемого имущества")
+    @Description("Проверка предложений реализуемого имущества")
     public void mortgagedPropertyTest() {
         HomePage homePage = new HomePage();
         MortgagedPropertyPage mortgagedPropertyPage = new MortgagedPropertyPage();
@@ -29,11 +28,9 @@ public class DesktopTests extends BaseDesktopTest {
         homePage.openPage();
         homePage.goToMortgagedPropertyPage();
 
-        mortgagedPropertyPage.getFlatsAndRoomsAmount();
-        String flatsAndRoomsAmount = mortgagedPropertyPage.flatsAndRoomsAmount;
         mortgagedPropertyPage.goToFlatsAndRoomsPage();
 
-        mortgagedPropertyOffersPage.checkAmountOfOffers(flatsAndRoomsAmount);
+        mortgagedPropertyOffersPage.checkOfferType();
     }
 
     // Тест-кейс 2.

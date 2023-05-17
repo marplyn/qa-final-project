@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MortgagePage {
-    private final By IF_INCOME_IS_LOWER_LINK = By.xpath("//*[contains(text(),\"Если доход ниже\")]");
+    private final By IF_INCOME_IS_LOWER_LINK = By.xpath("//div[contains(text(),\"Если доход ниже\")]");
     private final By WHO_IS_CO_BORROWER_LINK = By.cssSelector("[href*=\"sozaemschik-po-ipoteke-eto-kto/ \"]");
     private final By IF_INCOME_IS_LOWER_MODAL = By.cssSelector("[data-testid=\"modal\"]");
     private final By BLOCK_TITLE = By.cssSelector("[class*=\"styled__GridContainer\"] [class*=\"styled__SmartText\"]");
@@ -15,7 +15,7 @@ public class MortgagePage {
     @Step("Открыть модальное окно \"Если доход ниже\"")
     public MortgagePage openIfIncomeIsLowerModalWindow() {
         $(BLOCK_TITLE).scrollIntoView(true);
-        $(IF_INCOME_IS_LOWER_LINK).shouldBe(Condition.interactable);
+        $(IF_INCOME_IS_LOWER_LINK).shouldBe(Condition.visible, Condition.interactable);
         $(IF_INCOME_IS_LOWER_LINK).click();
         return this;
     }

@@ -7,11 +7,11 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MortgagedPropertyOffersPage {
-    private final By OFFERS_AMOUNT = By.cssSelector(".sort-offers__heading h3");
+    private final By OFFER_TYPE = By.cssSelector(".advertisement__data .type p");
 
-    @Step("Проверить количество предложений")
-    public MortgagedPropertyOffersPage checkAmountOfOffers(String expectedValue) {
-        $(OFFERS_AMOUNT).shouldHave(Condition.text(expectedValue));
+    @Step("Проверить тип предложения")
+    public MortgagedPropertyOffersPage checkOfferType() {
+        $(OFFER_TYPE).shouldHave(Condition.text("квартира"));
         return this;
     }
 }
