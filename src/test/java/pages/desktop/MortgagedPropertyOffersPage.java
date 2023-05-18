@@ -14,6 +14,7 @@ public class MortgagedPropertyOffersPage {
 
     @Step("Проверить тип предложения")
     public MortgagedPropertyOffersPage checkOfferType() {
+        $(OFFER_TYPE).shouldBe(Condition.visible);
         $(OFFER_TYPE).shouldHave(Condition.text("квартира"));
         return this;
     }
